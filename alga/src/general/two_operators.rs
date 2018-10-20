@@ -59,7 +59,7 @@ pub trait AbstractRing<A: Operator = Additive, M: Operator = Multiplicative>:
 /// ```
 /// # #[macro_use]
 /// # extern crate alga;
-/// # use alga::general::{AbstractMagma, AbstractRing, Additive, Multiplicative, Inverse, Identity};
+/// # use alga::general::{AbstractMagma, AbstractRing, Additive, Multiplicative, TwoSidedInverse, Identity};
 /// # fn main() {}
 /// #[derive(PartialEq, Clone)]
 /// struct Wrapper<T>(T);
@@ -70,9 +70,9 @@ pub trait AbstractRing<A: Operator = Additive, M: Operator = Multiplicative>:
 ///     }
 /// }
 ///
-/// impl<T: Inverse<Additive>> Inverse<Additive> for Wrapper<T> {
-///     fn inverse(&self) -> Self {
-///         Wrapper(self.0.inverse())
+/// impl<T: TwoSidedInverse<Additive>> TwoSidedInverse<Additive> for Wrapper<T> {
+///     fn two_sided_inverse(&self) -> Self {
+///         Wrapper(self.0.two_sided_inverse())
 ///     }
 /// }
 ///
@@ -144,7 +144,7 @@ pub trait AbstractRingCommutative<A: Operator = Additive, M: Operator = Multipli
 /// ```
 /// # #[macro_use]
 /// # extern crate alga;
-/// # use alga::general::{AbstractMagma, AbstractRingCommutative, Additive, Multiplicative, Inverse, Identity};
+/// # use alga::general::{AbstractMagma, AbstractRingCommutative, Additive, Multiplicative, TwoSidedInverse, Identity};
 /// # fn main() {}
 /// #[derive(PartialEq, Clone)]
 /// struct Wrapper<T>(T);
@@ -155,9 +155,9 @@ pub trait AbstractRingCommutative<A: Operator = Additive, M: Operator = Multipli
 ///     }
 /// }
 ///
-/// impl<T: Inverse<Additive>> Inverse<Additive> for Wrapper<T> {
-///     fn inverse(&self) -> Self {
-///         Wrapper(self.0.inverse())
+/// impl<T: TwoSidedInverse<Additive>> TwoSidedInverse<Additive> for Wrapper<T> {
+///     fn two_sided_inverse(&self) -> Self {
+///         Wrapper(self.0.two_sided_inverse())
 ///     }
 /// }
 ///
@@ -200,7 +200,7 @@ pub trait AbstractField<A: Operator = Additive, M: Operator = Multiplicative>:
 /// ```
 /// # #[macro_use]
 /// # extern crate alga;
-/// # use alga::general::{AbstractMagma, AbstractField, Additive, Multiplicative, Inverse, Identity};
+/// # use alga::general::{AbstractMagma, AbstractField, Additive, Multiplicative, TwoSidedInverse, Identity};
 /// # fn main() {}
 /// #[derive(PartialEq, Clone)]
 /// struct Wrapper<T>(T);
@@ -211,9 +211,9 @@ pub trait AbstractField<A: Operator = Additive, M: Operator = Multiplicative>:
 ///     }
 /// }
 ///
-/// impl<T: Inverse<Additive>> Inverse<Additive> for Wrapper<T> {
-///     fn inverse(&self) -> Self {
-///         Wrapper(self.0.inverse())
+/// impl<T: TwoSidedInverse<Additive>> TwoSidedInverse<Additive> for Wrapper<T> {
+///     fn two_sided_inverse(&self) -> Self {
+///         Wrapper(self.0.two_sided_inverse())
 ///     }
 /// }
 ///
@@ -228,9 +228,9 @@ pub trait AbstractField<A: Operator = Additive, M: Operator = Multiplicative>:
 ///         Wrapper(self.0.operate(&right.0))
 ///     }
 /// }
-/// impl<T: Inverse<Multiplicative>> Inverse<Multiplicative> for Wrapper<T> {
-///     fn inverse(&self) -> Self {
-///         Wrapper(self.0.inverse())
+/// impl<T: TwoSidedInverse<Multiplicative>> TwoSidedInverse<Multiplicative> for Wrapper<T> {
+///     fn two_sided_inverse(&self) -> Self {
+///         Wrapper(self.0.two_sided_inverse())
 ///     }
 /// }
 ///
